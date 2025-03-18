@@ -82,17 +82,17 @@ public class Filters extends Application {
      * Helper funciton used to update all the labels based on the 
      * data. It should be called whenever the data changes.
      */
-    private void update () {
-        int row = 0;
-        for (List<Label> label_row : lables) {
-            int col = 0;
-            for (Label label : label_row) {
-                label.setText (data.get (row) [col]);
-                col++;
-            }
-            row++;
-        }
-    }
+    // private void update () {
+    //     int row = 0;
+    //     for (List<Label> label_row : lables) {
+    //         int col = 0;
+    //         for (Label label : label_row) {
+    //             label.setText (data.get (row) [col]);
+    //             col++;
+    //         }
+    //         row++;
+    //     }
+    // }
 
     public static void main (String[] args) {
         // Example of hard coding the args, useful for debugging but
