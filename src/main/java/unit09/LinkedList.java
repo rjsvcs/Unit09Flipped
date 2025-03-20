@@ -1,5 +1,7 @@
 package unit09;
 
+import java.util.Iterator;
+
 public class LinkedList<E> implements List<E> {
 
     private Node<E> head;
@@ -53,5 +55,10 @@ public class LinkedList<E> implements List<E> {
     @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new NodeIterator<>(head);
     }
 }
