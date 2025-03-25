@@ -59,6 +59,61 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return new NodeIterator<>(head);
+        return new NodeIterator(head);
+    }
+
+    private class NodeIterator implements Iterator<E> {
+        private Node<E> node;
+
+        public NodeIterator(Node<E> node) {
+            this.node = node;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return node != null;
+        }
+
+        @Override
+        public E next() {
+            E element = node.getValue();
+            node = node.getNext();
+            return element;
+        }
+    }
+
+    private static class Node<T> {
+        private T value;
+        private Node<T> next;
+
+        public Node(T value, Node<T> next) {
+            this.value = value;
+            this.next = next;
+        }
+
+        public Node(T value) {
+            this(value, null);
+        }
+
+        public T getValue() {
+            return value;
+        }
+
+        public void setValue(T value) {
+            this.value = value;
+        }
+
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
+
+        public Node<T> getNext() {
+            return next;
+        }
+
+        public String toString(){
+            String rest = this.next == null ? "null" : this.next.toString();
+            return this.getValue() + " -> " + rest;
+        }
     }
 }
